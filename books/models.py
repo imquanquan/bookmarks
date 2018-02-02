@@ -7,6 +7,9 @@ class Category(models.Model):
     '''
     name = models.CharField(max_length = 10)
     
+    def __str__(self):
+        return self.name
+    
     
 class Tag(models.Model):
     '''
@@ -14,13 +17,17 @@ class Tag(models.Model):
     '''
     name = models.CharField(max_length = 20)
     
+    def __str(self):
+        return self.name
+
 
 class Book(models.Model):
     # Book information
     name = models.CharField(max_length = 50)
     author = models.CharField(max_length = 50)
-    publication_date = models.DateTimeField()
+    publication_date = models.DateField()
     press = models.CharField(max_length = 50)
+    cover = models.CharField(max_length = 50, blank=True)
     
     # Creating information
     creater =  models.ForeignKey(User)
@@ -29,6 +36,10 @@ class Book(models.Model):
     excerpt = models.CharField(max_length=200, blank=True)
     category = models.ForeignKey(Category)
     tags = models.ManyToManyField(Tag, blank=True)
+    
+    def __str__(self):
+        return self.name
+    
     
 class Note(models.Model):
     # Books note
@@ -39,6 +50,8 @@ class Note(models.Model):
     modified_time = models.DateTimeField()
     book = models.ForeignKey(Book)
     
+    def __str__(self):
+        return self.name
     
     
 
