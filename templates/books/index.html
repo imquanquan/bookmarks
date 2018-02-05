@@ -1,14 +1,17 @@
 {% extends 'base.html' %}
+{% load tags %}
 
 {% block category %}
 			<div class="cd-tab-filter">
 				<ul class="cd-filters">
+					{% get_categories as category_list %}
 					<li class="placeholder"> 
 						<a data-type="all" href="#0">All</a> <!-- selected option on mobile -->
 					</li> 
 					<li class="filter"><a class="selected" href="#0" data-type="all">All</a></li>
-					<li class="filter" data-filter=".color-1"><a href="#0" data-type="color-1">Color 1</a></li>
-					<li class="filter" data-filter=".color-2"><a href="#0" data-type="color-2">Color 2</a></li>
+					{% for category in category_list %}
+						<li class="filter" data-filter=".{{ category.name }}"><a href="#0" data-type="{{ category.name }}">{{ category.name }}</a></li>
+                                        {% endfor %}
 				</ul> <!-- cd-filters -->
 			</div> <!-- cd-tab-filter -->
 {% endblock category %}
@@ -17,7 +20,7 @@
 	<section class="cd-gallery">
 		<ul> 
                         {% for book in books_list %}
-				<li class="mix color-1 check1 radio2 option3"><img class="book-img" src="{{ book.cover }}" alt="Image 1"><h2 class="book-name"><a href="#0">{{ book.name }} </a></h2></li>
+				<li class="mix {{ book.category.name }}"><img class="book-img" src="{{ book.cover_thumbnail.url }}" alt="{{ book.name }}"><h2 class="book-name"><a href="#0">{{ book.name }}</a></h2></li>
                         {% empty %}
                                 <div class="cd-fail-message">书架空空如也</div>
                         {% endfor %}

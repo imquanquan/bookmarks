@@ -1,6 +1,9 @@
 from django.db import models
 from django.contrib.auth.models import User
 
+from imagekit.models import ImageSpecField
+from imagekit.processors import ResizeToFill
+
 class Category(models.Model):
     '''
     Books categories
@@ -27,7 +30,11 @@ class Book(models.Model):
     author = models.CharField(max_length = 50)
     publication_date = models.DateField()
     press = models.CharField(max_length = 50)
-    cover = models.CharField(max_length = 50, blank=True)
+    cover = models.ImageField(upload_to='covers', blank=True)
+    cover_thumbnail = ImageSpecField(source='cover',
+                                     processors=[ResizeToFill(420, 650)],
+                                     format='JPEG',
+                                     options={'quality': 90})
     
     # Creating information
     creater =  models.ForeignKey(User)
