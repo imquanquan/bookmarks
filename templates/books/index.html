@@ -20,7 +20,7 @@
 	<section class="cd-gallery">
 		<ul> 
                         {% for book in books_list %}
-				<li class="mix {{ book.category.name }}"><img class="book-img" src="{{ book.cover_thumbnail.url }}" alt="{{ book.name }}"><h2 class="book-name"><a href="#0">{{ book.name }}</a></h2></li>
+				<li class="mix {{ book.category.name }}{% for tag in book.tags.all %} {{ tag }}{% endfor %}"><img class="book-img" src="{{ book.cover_thumbnail.url }}" alt="{{ book.name }}"><h2 class="book-name"><a href="#0">{{ book.name }}</a></h2></li>
                         {% empty %}
                                 <div class="cd-fail-message">书架空空如也</div>
                         {% endfor %}
@@ -30,5 +30,32 @@
 		</ul>
 	</section> <!-- cd-gallery -->
 {% endblock body %}
+{% block filter %}
+<form>
+				<div class="cd-filter-block">
+					<h4>Search</h4>
+					
+					<div class="cd-filter-content">
+						<input type="search" placeholder="尝试输入 color-1...">
+					</div> <!-- cd-filter-content -->
+				</div> <!-- cd-filter-block -->
 
+				<div class="cd-filter-block">
+					<h4>过滤标签</h4>
+					{% get_tags as tag_zip %}
+					<ul class="cd-filter-content cd-filters list">
+						{% for id, tag in tag_zip %}
+							<li>
+								<input class="filter" data-filter=".{{ tag.name }}" type="checkbox" id="checkbox{{ id }}">
+			    					<label class="checkbox-label" for="checkbox{{ id }}">{{ tag.name }}</label>
+							</li>
+						{% empty %}
+                                			<div class="cd-fail-message">没有标签</div>
+                        			{% endfor %}
+					</ul> <!-- cd-filter-content -->
+				</div> <!-- cd-filter-block -->
+			<a href="#0" class="cd-close">Close</a>
+		</div> <!-- cd-filter -->
+		<a href="#0" class="cd-filter-trigger">筛选</a>
+{% endblock filter %}
 

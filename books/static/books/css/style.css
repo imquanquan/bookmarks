@@ -584,7 +584,7 @@ xcustom form elements
 .cd-filter-block .checkbox-label,
 .cd-filter-block .radio-label {
   padding-left: 24px;
-  font-size: 1.4rem;
+  font-size: 2.0rem;
   -webkit-user-select: none;
   -moz-user-select: none;
   -ms-user-select: none;

@@ -20,9 +20,8 @@ class Tag(models.Model):
     '''
     name = models.CharField(max_length = 20)
     
-    def __str(self):
+    def __str__(self):
         return self.name
-
 
 class Book(models.Model):
     # Book information
@@ -32,7 +31,6 @@ class Book(models.Model):
     press = models.CharField(max_length = 50)
     cover = models.ImageField(upload_to='covers', blank=True)
     cover_thumbnail = ImageSpecField(source='cover',
-                                     processors=[ResizeToFill(420, 650)],
                                      format='JPEG',
                                      options={'quality': 90})
     
