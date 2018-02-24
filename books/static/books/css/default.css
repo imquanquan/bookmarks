@@ -213,12 +213,13 @@ a:hover,a:focus{color:#74777b;};
 }
 
 .book-name {
+	text-align:center;
+        height: 50px;
 	font-family: "微软雅黑";
 	font-weight: 650;
 	font-size: 1.8em;
 	line-height: 1;
 	margin-bottom: 0;
-        text-align:center;
 	white-space:nowrap;
 	overflow:hidden;	
 	text-overflow:ellipsis;
@@ -229,11 +230,28 @@ a:hover,a:focus{color:#74777b;};
         height: 650px;
 }
 
+.toc-sidebar ul {
+  padding-left: 0;
+  list-style: none;
+  margin-top: 0 !important; }
+  .toc-sidebar ul li:not(:first-child) {
+    margin-top: 7px; }
+  .toc-sidebar ul li a {
+    color: #777;
+    text-decoration: none;
+    font-size: 24px;}
+  .toc-sidebar ul li ul {
+    list-style: none;
+    padding-left: 20px; }
+    .toc-sidebar ul li ul li {
+      margin-top: 7px; }
+
 
 .main{
 	width: 85%;
 	margin: 0 auto;
 }
+
 
 @media screen and (max-width: 50em) {
 	.htmleaf-header {

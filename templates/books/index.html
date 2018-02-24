@@ -1,5 +1,7 @@
 {% extends 'base.html' %}
+
 {% load tags %}
+
 
 {% block category %}
 			<div class="cd-tab-filter">
@@ -20,7 +22,14 @@
 	<section class="cd-gallery">
 		<ul> 
                         {% for book in books_list %}
-				<li class="mix {{ book.category.name }}{% for tag in book.tags.all %} {{ tag }}{% endfor %}"><img class="book-img" src="{{ book.cover_thumbnail.url }}" alt="{{ book.name }}"><h2 class="book-name"><a href="#0">{{ book.name }}</a></h2></li>
+				<li class="mix {{ book.category.name }}{% for tag in book.tags.all %} {{ tag }}{% endfor %}">
+					<a href="{% url 'books:book_slug' book.slug %}">
+						<img class="book-img" src="{{ book.cover_thumbnail.url }}" alt="{{ book.name }}">
+					</a>
+					<h2 class="book-name">
+						<a href="{% url 'books:book_slug' book.slug %}">{{ book.name }}</a>
+					</h2>
+				</li>
                         {% empty %}
                                 <div class="cd-fail-message">书架空空如也</div>
                         {% endfor %}

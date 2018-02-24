@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+
+
+{% block category %}
+			<div class="cd-tab-filter">
+				<ul class="cd-filters">
+				</ul> <!-- cd-filters -->
+			</div> <!-- cd-tab-filter -->
+{% endblock category %}
+{% block body %}
+	<div class="cd-md">
+		{{ note.body|safe }}
+	</div>
+{% endblock body %}
+{% block filter %}
+<form>
+	<div class="scroll-view bg-white card toc-sidebar" style="height: 100%; left: 0px;">
+	<ul>
+              {% for book_note in notes_list %}
+                <li>
+                  <a href="{{ book_note.get_absolute_url }}">{{ note.title }}</a>
+                  {% if book_note.pk == note.pk %}
+                    {{ note.toc |safe }}
+                  {% endif %}
+                </li>
+              {% endfor %}
+        </ul>
+	</div>
+			<a href="#0" class="cd-close">Close</a>
+		</div> <!-- cd-filter -->
+		<a href="#0" class="cd-filter-trigger">目录</a>
+{% endblock filter %}
+

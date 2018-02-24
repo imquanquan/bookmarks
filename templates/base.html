@@ -4,9 +4,8 @@
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<link rel="stylesheet" href="{% static 'books/css/reset.css' %}"> <!-- CSS reset -->
-	<link rel="stylesheet" href="{% static 'books/css/default.css' %}"> <!-- CSS reset -->
-	<link rel="stylesheet" href="{% static 'books/css/style.css' %}"> <!-- Resource style -->
+	<link rel="stylesheet" href="{% static 'books/css/default.css' %}"> 
+	<link rel="stylesheet" href="{% static 'books/css/style.css' %}"> 
 	<script src="{% static 'books/js/modernizr.js' %}"></script> <!-- Modernizr -->
 	<title>小小读书笔记本呐#^_^#</title>
 </head>
@@ -20,10 +19,8 @@
     			{% block category %}
     			{% endblock category %}
 		</div> <!-- cd-tab-filter-wrapper -->
-
     		{% block body %}
     		{% endblock body %}
-
 		<div class="cd-filter">
 			{% block filter %}
 			{% endblock filter %}

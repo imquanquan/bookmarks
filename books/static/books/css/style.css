@@ -81,7 +81,7 @@ Main Components
   left: 0;
   width: 100%;
 }
-.cd-main-content.is-fixed .cd-gallery {
+.cd-main-content.is-fixed .cd-gallery .cd-md {
   padding-top: 76px;
 }
 .cd-main-content.is-fixed .cd-filter {
@@ -98,12 +98,12 @@ Main Components
   position: fixed;
 }
 @media only screen and (min-width: 768px) {
-  .cd-main-content.is-fixed .cd-gallery {
+  .cd-main-content.is-fixed .cd-gallery .cd-md {
     padding-top: 90px;
   }
 }
 @media only screen and (min-width: 1170px) {
-  .cd-main-content.is-fixed .cd-gallery {
+  .cd-main-content.is-fixed .cd-gallery .cd-md {
     padding-top: 100px;
   }
 }
@@ -172,7 +172,6 @@ xtab-filter
   /* set same size of the .cd-tab-filter */
   height: 50px;
   width: 140px;
-  line-height: 50px;
   padding-left: 14px;
 }
 .cd-tab-filter a.selected {
@@ -234,8 +233,6 @@ xtab-filter
   .cd-tab-filter a.selected {
     background: transparent;
     color: #41307c;
-    /* create border bottom using box-shadow property */
-    box-shadow: inset 0 -2px 0 #41307c;
   }
   .cd-tab-filter.is-open ul li {
     display: inline-block;
@@ -253,7 +250,7 @@ xtab-filter
   }
   .cd-tab-filter.filter-is-visible {
     /* reduce width when filter is visible */
-    width: 80%;
+    width: 85%;
   }
 }
 
@@ -315,7 +312,7 @@ xgallery
   }
   .cd-gallery.filter-is-visible {
     /* reduce width when filter is visible */
-    width: 80%;
+    width: 85%;
   }
 }
 
@@ -397,7 +394,7 @@ xfilter
 }
 @media only screen and (min-width: 1170px) {
   .cd-filter {
-    width: 20%;
+    width: 15%;
   }
   .cd-filter form {
     padding: 70px 10%;
@@ -566,9 +563,11 @@ xcustom form elements
 .cd-filter-block .list li {
   position: relative;
   margin-bottom: .8em;
+  list-style-type: none;
 }
 .cd-filter-block .list li:last-of-type {
   margin-bottom: 0;
+  list-style-type: none;
 }
 .cd-filter-block input[type=radio],
 .cd-filter-block input[type=checkbox] {
@@ -648,3 +647,23 @@ xcustom form elements
     display: none;
   }
 }
+
+.cd-md {
+  padding: 26px 5%;
+  width: 100%;
+}
+
+@media only screen and (min-width: 1170px) {
+  .cd-md {
+    padding: 50px 2%;
+    float: right;
+    -webkit-transition: width 0.3s;
+    -moz-transition: width 0.3s;
+    transition: width 0.3s;
+  }
+  .cd-md.filter-is-visible {
+    /* reduce width when filter is visible */
+    width: 85%;
+  }
+}
+
