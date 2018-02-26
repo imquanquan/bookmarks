@@ -36,12 +36,12 @@ class Book(models.Model):
                                      options={'quality': 90})
 
     # Creating information
-    creater =  models.ForeignKey(User)
+    creater =  models.ForeignKey(User, on_delete=models.CASCADE)
     create_time = models.DateTimeField()
     slug = models.SlugField(unique=True)
     modified_time = models.DateTimeField()
     excerpt = models.CharField(max_length=200, blank=True)
-    category = models.ForeignKey(Category)
+    category = models.ForeignKey(Category, on_delete=models.CASCADE)
     tags = models.ManyToManyField(Tag, blank=True)
 
     class Meta:
@@ -58,10 +58,10 @@ class Note(models.Model):
     # Books note
     title = models.CharField(max_length=70)
     body = models.TextField()
-    creater =  models.ForeignKey(User)
+    creater =  models.ForeignKey(User, on_delete=models.CASCADE)
     create_time = models.DateTimeField()
     modified_time = models.DateTimeField()
-    book = models.ForeignKey(Book)
+    book = models.ForeignKey(Book, on_delete=models.CASCADE)
     slug = models.SlugField(unique=True)
     
     def get_absolute_url(self):

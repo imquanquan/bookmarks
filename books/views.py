@@ -1,3 +1,4 @@
+from django.http import HttpResponseNotFound  
 from django.shortcuts import render, get_object_or_404, redirect
 from django.views.generic import ListView, DetailView
 from django.utils.text import slugify
@@ -16,6 +17,8 @@ class IndexView(ListView):
 class BookListView(ListView):
     def get(self, request, *args, **kwargs):
         self.book = get_object_or_404(Book, slug=self.kwargs.get('slug'))
+        if not self.book.note_set.last():
+            return HttpResponseNotFound('<h1>No Bookmark Here</h1>') 
         return redirect(self.book.note_set.last())
 
 
