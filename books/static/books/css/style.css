@@ -651,12 +651,14 @@ xcustom form elements
 .cd-md {
   padding: 26px 5%;
   width: 100%;
+  background-color: #f9f9f9;
 }
 
 @media only screen and (min-width: 1170px) {
   .cd-md {
     padding: 50px 2%;
     float: right;
+    background-color: #f9f9f9;
     -webkit-transition: width 0.3s;
     -moz-transition: width 0.3s;
     transition: width 0.3s;

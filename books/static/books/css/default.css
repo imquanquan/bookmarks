@@ -230,6 +230,40 @@ a:hover,a:focus{color:#74777b;};
         height: 450px;
 }
 
+#mainpic {
+    margin: 3px 0 0 0;
+    float: left;
+    text-align: center;
+    margin: 3px 12px 0 0;
+    max-width: 337px;
+    overflow: hidden;
+}
+
+#mainpic img {
+    margin-bottom: 10px;
+    width: 337px;
+    height: 450px;
+    border-width: 0;
+    vertical-align: middle;
+}
+
+#info {
+    float: left;
+    max-width: 750px;
+    word-wrap: break-word;
+}
+
+.pl {
+    font: 36px Arial, Helvetica, sans-serif;
+    line-height: 150%;
+    color: #666666;
+}
+
+.text {
+    font: 36px Arial, Helvetica, sans-serif;
+    line-height: 150%;
+}
+
 .toc-sidebar ul {
   padding-left: 0;
   list-style: none;
@@ -252,6 +286,16 @@ a:hover,a:focus{color:#74777b;};
 	margin: 0 auto;
 }
 
+pre {
+    font-family: 'Consolas', 'DejaVu Sans Mono', 'Bitstream Vera Sans Mono', monospace;
+    font-size: 13px;
+    letter-spacing: 0.015em;
+    line-height: 120%;
+    padding: 0.5em;
+    border: 1px solid #ccc;
+    border-radius: 2px;
+    background-color: #f8f8f8;
+}
 
 @media screen and (max-width: 50em) {
 	.htmleaf-header {

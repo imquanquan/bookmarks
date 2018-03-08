@@ -8,9 +8,18 @@
 			</div> <!-- cd-tab-filter -->
 {% endblock category %}
 {% block body %}
-	<div class="cd-md">
-		{{ note.body|safe }}
-	</div>
+<div class="cd-md">
+<h1>{{ book.name }}</h1>
+<div id="mainpic" class="">
+    <img src="{{ book.cover_thumbnail.url }}"alt="流行音乐基本乐理">
+</div>
+<div id="info" class="">
+      <span class="pl">作者：</span><span class="text">{{ book.author }}</span><br>
+<span class="pl">出版社：</span><span class="text">{{ book.press }}</span><br>
+    <span class="pl">出版年：</span><span class="text">{{ book.publication_date }}</span><br>
+<span class="pl">简介：</span><span class="text">{{ book.excerpt }}</span>
+</div>
+</div>
 {% endblock body %}
 {% block filter %}
 <form>

@@ -14,12 +14,23 @@ class IndexView(ListView):
     context_object_name = 'books_list'
     
 
-class BookListView(ListView):
-    def get(self, request, *args, **kwargs):
-        self.book = get_object_or_404(Book, slug=self.kwargs.get('slug'))
-        if not self.book.note_set.last():
-            return HttpResponseNotFound('<h1>No Bookmark Here</h1>') 
-        return redirect(self.book.note_set.last())
+class BookListView(DetailView):
+    model = Book
+    template_name = 'books/info.html'
+    context_object_name = 'book'    
+        
+    def get_object(self, queryset=None):
+        self.book = super().get_object(queryset=queryset)   
+        return self.book        
+    
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        book = self.object
+        
+        notes_list = list(book.note_set.all().order_by('create_time'))
+        context['notes_list'] = notes_list
+        
+        return context    
 
 
 class NoteView(DetailView):
