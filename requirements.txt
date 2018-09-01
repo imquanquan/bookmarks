@@ -3,4 +3,4 @@ django_imagekit==4.0.1
 Django==2.0.2
 gunicorn==19.7.1
 Pillow==4.2.1
-mysql-python
+pymysql
